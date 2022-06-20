@@ -1,6 +1,5 @@
 <template>
 	<div :class="{hidden: !showModal}" class="fixed flex h-screen w-screen z-40">
-		{{manager}}
 		<div class="m-auto container bg-gray-800 shadow-2xl rounded z-50">
 			<div class="p-3 border-b border-gray-700">
 				<h5 class="text-xl">Login</h5>
@@ -10,9 +9,10 @@
 					Log in with Google
 				</button>
 			</div>
+		{{ manager }}
 			<form class="p-3">
 				<div class="flex gap-3">
-					<input ref="email" class="input" placeholder="Email" type="email" />
+					<input class="input" placeholder="Email" type="email" />
 					<input class="input" placeholder="Password" type="password" />
 				</div>
 				<div class="flex justify-end mt-3">
@@ -33,6 +33,7 @@ const manager = useFoo();
 <script lang="ts">
 export default {
 	name: "login",
+	expose: ["show", "hide", "toggle"],
 	data()
 	{
 		return {
@@ -43,7 +44,6 @@ export default {
 		show(): void
 		{
 			this.showModal = true;
-			window.setTimeout(() => this.$refs.email.focus(), 100);
 		},
 		hide(): void
 		{

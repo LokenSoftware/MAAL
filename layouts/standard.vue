@@ -1,7 +1,6 @@
 <template>
 	<div>
 		<login ref="login" />
-		{{manager}}
 		
 		<!-- Sidebar -->
 		<aside :class="{show: show}" class="sidebar z-50">
@@ -43,9 +42,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useFoo } from "#imports";
 
-const manager = useFoo();
 </script>
 
 <script lang="ts">
