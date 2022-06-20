@@ -1,0 +1,28 @@
+@keyframes page-in
+{
+	from
+	{
+		opacity: 0;
+	}
+	to
+	{
+		opacity: 1;
+	}
+}
+
+.page-enter-active
+{
+	animation-duration: 300ms;
+	animation-fill-mode: forwards;
+	animation-name: page-in;
+}
+
+.page-enter-active, .page-leave-active
+{
+	transition: opacity 300ms;
+}
+
+.page-enter, .page-leave-to
+{
+	opacity: 0;
+}
