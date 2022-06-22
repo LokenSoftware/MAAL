@@ -4,12 +4,11 @@
 			<div class="p-3 border-b border-gray-700">
 				<h5 class="text-xl">Login</h5>
 			</div>
+			
 			<div class="p-3">
-				<button class="btn mt-3 bg-gray-200" v-on:click="login">
-					Log in with Google
-				</button>
+				<div class="w-fit" ref="googleButton" />
 			</div>
-		{{ manager }}
+			
 			<form class="p-3">
 				<div class="flex gap-3">
 					<input class="input" placeholder="Email" type="email" />
@@ -25,9 +24,11 @@
 </template>
 
 <script lang="ts" setup>
-import { useFoo } from "#imports";
+import { useRuntimeConfig } from "#app";
+import { useAuthManager } from "#imports";
 
-const manager = useFoo();
+const config = useRuntimeConfig().public;
+const manager = useAuthManager();
 </script>
 
 <script lang="ts">
@@ -39,6 +40,10 @@ export default {
 		return {
 			showModal: false
 		};
+	},
+	mounted(): void
+	{
+		this.initGoogle();
 	},
 	methods: {
 		show(): void
@@ -53,9 +58,23 @@ export default {
 		{
 			this.showModal = !this.showModal;
 		},
-		async login(): Promise<void>
+		initGoogle(): void
 		{
-			console.log(this.manager);
+			const script = document.createElement("script");
+			script.async = true;
+			script.defer = true;
+			script.src = "https://accounts.google.com/gsi/client";
+			script.addEventListener("load", () =>
+			{
+				console.log(window.google.accounts);
+				window.google.accounts.id.initialize({
+					client_id: this.config.CLIENT_ID,
+					callback: res => console.log(res.credential)
+				});
+				window.google.accounts.id.renderButton(this.$refs.googleButton, {theme: "filled_black"});
+			});
+			
+			document.head.appendChild(script);
 		}
 	}
 };
