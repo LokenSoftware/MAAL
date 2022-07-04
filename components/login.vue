@@ -5,9 +5,9 @@
 				<h5 class="text-xl">Login</h5>
 			</div>
 			
-			<div class="p-3">
-				<div class="w-fit" ref="googleButton" />
-			</div>
+			<form class="p-3" action="https://localhost:4000/V1/Login" method="post">
+				<button type="submit" class="btn purple" name="provider" value="Google">Google</button>
+			</form>
 			
 			<form class="p-3">
 				<div class="flex gap-3">
@@ -15,7 +15,7 @@
 					<input class="input" placeholder="Password" type="password" />
 				</div>
 				<div class="flex justify-end mt-3">
-					<button class="btn purple">Submit</button>
+					<button class="btn purple" v-on:click="test" type="button">Submit</button>
 				</div>
 			</form>
 		</div>
@@ -41,10 +41,6 @@ export default {
 			showModal: false
 		};
 	},
-	mounted(): void
-	{
-		this.initGoogle();
-	},
 	methods: {
 		show(): void
 		{
@@ -58,23 +54,17 @@ export default {
 		{
 			this.showModal = !this.showModal;
 		},
-		initGoogle(): void
+		async test(): Promise<void>
 		{
-			const script = document.createElement("script");
-			script.async = true;
-			script.defer = true;
-			script.src = "https://accounts.google.com/gsi/client";
-			script.addEventListener("load", () =>
-			{
-				console.log(window.google.accounts);
-				window.google.accounts.id.initialize({
-					client_id: this.config.CLIENT_ID,
-					callback: res => console.log(res.credential)
-				});
-				window.google.accounts.id.renderButton(this.$refs.googleButton, {theme: "filled_black"});
+			const res = await fetch("https://localhost:4000/V1/Test", {
+				method: "GET",
+				credentials: "include"
 			});
-			
-			document.head.appendChild(script);
+			console.log(res.status);
+			if (res.ok)
+			{
+				console.log(await res.text());
+			}
 		}
 	}
 };

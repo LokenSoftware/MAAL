@@ -4,15 +4,7 @@ export class AuthManager
 	
 	constructor()
 	{
-		if (typeof googleUser !== "undefined")
-		{
-			console.log(googleUser);
-			
-		}
-		else
-		{
-			console.log("nope");
-		}
+	
 	}
 	
 	get user(): User
@@ -20,7 +12,7 @@ export class AuthManager
 		return this._user;
 	}
 	
-	set user(info: User): void
+	set user(info: User)
 	{
 		this._user = info;
 	}
