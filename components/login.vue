@@ -1,13 +1,29 @@
 <template>
-	<div :class="{hidden: !showModal}" class="fixed flex h-screen w-screen z-40">
-		<div class="m-auto container bg-gray-800 shadow-2xl rounded z-50">
+	<div :class="{hidden: showModal}" class="fixed flex h-screen w-screen z-40">
+		<form action="{{JSON.stringify(config)}}" method="post" class="m-auto container bg-gray-800 shadow-2xl rounded z-50">
+			{{JSON.stringify(config)}}
 			<div class="p-3 border-b border-gray-700">
 				<h5 class="text-xl">Login</h5>
 			</div>
 			
-			<form class="p-3" action="https://localhost:4000/V1/Login" method="post">
-				<button type="submit" class="btn purple" name="provider" value="Google">Google</button>
-			</form>
+			<div class="p-3">
+				<button disabled
+					class="btn purple"
+					name="provider"
+					type="submit"
+					value="{{IdentityProvider.microsoft}}">
+					Microsoft
+				</button>
+				<button class="btn purple" name="provider" type="submit" value="{{IdentityProvider.google}}">
+					Google
+				</button>
+				<button disabled class="btn purple" name="provider" type="submit" value="{{IdentityProvider.twitter}}">
+					Twitter
+				</button>
+				<button disabled class="btn purple" name="provider" type="submit" value="{{IdentityProvider.linkedIn}}">
+					LinkedIn
+				</button>
+			</div>
 			
 			<form class="p-3">
 				<div class="flex gap-3">
@@ -15,20 +31,26 @@
 					<input class="input" placeholder="Password" type="password" />
 				</div>
 				<div class="flex justify-end mt-3">
-					<button class="btn purple" v-on:click="test" type="button">Submit</button>
+					<button class="btn purple"
+						type="submit"
+						name="provider"
+						value="{{IdentityProvider.MAAL}}"
+						disabled
+						v-on:click="test">
+						Submit
+					</button>
 				</div>
 			</form>
-		</div>
+		</form>
 		<div class="absolute bg-opacity-30 bg-gray-900 w-full h-full" v-on:click="hide" />
 	</div>
 </template>
 
 <script lang="ts" setup>
 import { useRuntimeConfig } from "#app";
-import { useAuthManager } from "#imports";
+import { IdentityProvider } from "~/enums/identityProvider";
 
 const config = useRuntimeConfig().public;
-const manager = useAuthManager();
 </script>
 
 <script lang="ts">
@@ -56,15 +78,7 @@ export default {
 		},
 		async test(): Promise<void>
 		{
-			const res = await fetch("https://localhost:4000/V1/Test", {
-				method: "GET",
-				credentials: "include"
-			});
-			console.log(res.status);
-			if (res.ok)
-			{
-				console.log(await res.text());
-			}
+			console.info("TODO");
 		}
 	}
 };

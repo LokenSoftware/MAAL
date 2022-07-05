@@ -27,7 +27,10 @@
 					</RouterLink>
 				</div>
 				<div class="flex gap-3">
-					<button class="nav-element rectangle title" v-on:click="showLogin">
+					<button v-if="user" class="nav-element rectangle title">
+						{{ user.name }}
+					</button>
+					<button v-else class="nav-element rectangle title" v-on:click="showLogin">
 						Login
 					</button>
 				</div>
@@ -42,12 +45,15 @@
 </template>
 
 <script lang="ts" setup>
+import { useUserManager } from "#imports";
 
+const user = useUserManager();
 </script>
 
 <script lang="ts">
 import Login from "~/components/login.vue";
 
+// noinspection JSUnusedGlobalSymbols
 export default {
 	name: "standard",
 	components: { Login },
@@ -55,7 +61,7 @@ export default {
 	{
 		return {
 			scrolled: false,
-			show: false,
+			show: false
 		};
 	},
 	mounted(): void
