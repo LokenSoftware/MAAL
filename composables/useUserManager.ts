@@ -1,3 +1,4 @@
+import { useRuntimeConfig } from "#app";
 import { onMounted, ref } from "#build/imports";
 import type { Ref } from "@vue/reactivity";
 import type { MAALUser } from "~/models/maalUser";
@@ -9,7 +10,12 @@ export default function(): Ref<MAALUser | null>
 	{
 		try
 		{
-			const res = await fetch("https://localhost:4000/V1/User", { credentials: "include" });
+			const init: RequestInit = {
+				method: "GET",
+				credentials: "include"
+			};
+			const config = useRuntimeConfig().public;
+			const res = await fetch(config.backendUrl + "/V1/User", init);
 			if (!res.ok)
 			{
 				return;

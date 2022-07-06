@@ -27,7 +27,7 @@
 					</RouterLink>
 				</div>
 				<div class="flex gap-3">
-					<button v-if="user" class="nav-element rectangle title">
+					<button v-if="user" class="nav-element rectangle title" v-on:click="showLogin">
 						{{ user.name }}
 					</button>
 					<button v-else class="nav-element rectangle title" v-on:click="showLogin">
