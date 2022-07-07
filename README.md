@@ -1,4 +1,4 @@
-# [MAAL](https://maal.net) - _Vue_
+# [MAAL](https://maal.dev) - _Vue_
 
 Frontend for personal website showcasing my abilities as an individual
 
