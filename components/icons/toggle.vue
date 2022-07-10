@@ -1,5 +1,5 @@
 <template>
-	<img :style="{height: height, width: width}" alt="&dtdot;" src="assets/svg/toggle.svg">
+	<img :style="{height: height, width: width}" alt="&dtdot;" src="/icons/toggle.svg">
 </template>
 
 <script lang="ts" setup>
