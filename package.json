@@ -13,6 +13,6 @@
 		"dev-release": "env-cmd -e root,release yarn run dev",
 		"generate": "nuxt generate",
 		"preview": "nuxt preview",
-		"serve": "node dist/server/main.js"
+		"serve": "node .output/server/index.mjs"
 	}
 }

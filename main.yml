@@ -1,0 +1,71 @@
+name: Main
+
+on:
+  push:
+    branches: [ "main", "dev" ]
+  pull_request:
+    branches: [ "main", "dev" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          
+      - name: Install
+      - run: npm ci
+      
+      - name: Build
+      - run: npm run build-development --if-present
+      
+      #- name: Test
+      #- run: npm test
+      
+      - name: Publish
+        # Publish shouldn't be needed unless we need to deploy
+        if: github.ref == 'refs/heads/main'
+        run: npm run build-release
+      - uses: actions/upload-artifact@master
+        with:
+          name: publish
+          path: .output
+  
+  Deploy:
+    runs-on: ubuntu-latest
+    needs:
+      - Build
+    # Only deploy on main
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - uses: actions/download-artifact@master
+        with:
+          name: publish
+          path: .output
+
+      - name: Transfer files
+        run: sshpass -p "${{ secrets.PASSWORD }}" scp -o "StrictHostKeyChecking no" -r .output ${{ secrets.USERNAME }}@${{ secrets.HOST }}:~/MAAL
+
+      - name: Replace process
+        run: |
+          sshpass -p "${{ secrets.PASSWORD }}" ssh -t ${{ secrets.USERNAME }}@${{ secrets.HOST }} << EOF
+          echo "${{ secrets.PASSWORD }}" | sudo -S systemctl stop kestrel-MAAL.service
+          rm -rf /var/www/MAAL
+          mv ~/MAAL /var/www/MAAL
+          sudo systemctl start kestrel-MAAL.service
+          EOF
