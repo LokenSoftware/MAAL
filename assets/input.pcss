@@ -5,10 +5,10 @@
 
 .btn
 {
-	@apply pt-1 pb-1 pr-3 pl-3 rounded;
+	@apply pt-1 pb-1 pr-3 pl-3 rounded disabled:cursor-not-allowed;
 	
 	&.purple
 	{
-		@apply bg-purple-700 hover:bg-purple-500;
+		@apply bg-purple-700 hover:bg-purple-500 disabled:bg-gray-400;
 	}
 }
