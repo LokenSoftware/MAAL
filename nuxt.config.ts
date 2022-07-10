@@ -6,7 +6,7 @@ export default defineNuxtConfig({
 	css: ["~/assets/main.pcss"],
 	runtimeConfig: {
 		public: {
-			backendUrl: process.env.backendUrl
+			BACKEND_URL: process.env.BACKEND_URL
 		}
 	}
 });

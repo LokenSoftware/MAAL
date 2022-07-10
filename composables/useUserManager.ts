@@ -15,7 +15,7 @@ export default function(): Ref<MAALUser | null>
 				credentials: "include"
 			};
 			const config = useRuntimeConfig().public;
-			const res = await fetch(config.backendUrl + "/V1/User", init);
+			const res = await fetch(config.BACKEND_URL + "/V1/User", init);
 			if (!res.ok)
 			{
 				return;

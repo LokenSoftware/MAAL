@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div :class="{hidden: !showModal}" class="fixed flex h-screen w-screen z-40">
-			<form :action="`${config.backendUrl}/V1/Login?${returnUrl}`"
+			<form :action="`${config.BACKEND_URL}/V1/Login?${returnUrl}`"
 				method="post"
 				class="m-auto container bg-gray-800 shadow-2xl rounded z-50">
 				<div class="p-3 border-b border-gray-700">
@@ -104,7 +104,7 @@ export default {
 				method: "POST",
 				credentials: "include"
 			};
-			const res = await fetch(this.config.backendUrl + "/V1/Login/Logout", init);
+			const res = await fetch(this.config.BACKEND_URL + "/V1/Login/Logout", init);
 			if (res.ok)
 			{
 				window.location.replace("/");
