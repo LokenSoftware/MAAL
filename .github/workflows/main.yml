@@ -11,55 +11,41 @@ on:
 
 jobs:
   Build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
+      - name: Clone
+        run: |
+          rm -rf MAAL
+          git clone git@github.com-MAAL:MathiasFrost/MAAL.git .
+          git checkout origin/main
       
       - name: Install
         run: yarn install --frozen-lockfile
       
       - name: Build
-        run: yarn run build-development
+        run: yarn run build-release
       
       #- name: Test
-      #  run: npm test
-      
-      - name: Publish
-        # Publish shouldn't be needed unless we need to deploy
-        if: github.ref == 'refs/heads/main'
-        run: yarn run build-release
-      - uses: actions/upload-artifact@master
-        with:
-          name: publish
-          path: .output
+      #  run: yarn test
   
   Deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs:
       - Build
+    
     # Only deploy on main
     if: github.ref == 'refs/heads/main'
     
     steps:
-      - uses: actions/download-artifact@master
-        with:
-          name: publish
-          path: .output
-      
       - name: Transfer files
-        run: sshpass -p "${{ secrets.PASSWORD }}" scp -o "StrictHostKeyChecking no" -r .output ${{ secrets.USERNAME }}@${{ secrets.HOST }}:~/MAAL
+        run: scp -r output ${{ secrets.USERNAME }}@${{ secrets.HOST }}:~/MAAL.API
       
       - name: Replace process
         run: |
-          sshpass -p "${{ secrets.PASSWORD }}" ssh -t ${{ secrets.USERNAME }}@${{ secrets.HOST }} << EOF
+          ssh -t ${{ secrets.USERNAME }}@${{ secrets.HOST }} << EOF
           echo "${{ secrets.PASSWORD }}" | sudo -S systemctl stop node-MAAL.service
           rm -rf /var/www/MAAL
-          mv ~/MAAL /var/www/MAAL
+          mv ~/MAAL.API /var/www/MAAL
           sudo systemctl start node-MAAL.service
           EOF
