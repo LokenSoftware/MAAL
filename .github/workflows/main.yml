@@ -3,10 +3,8 @@ name: Main
 on:
   push:
     branches: ["main", "dev"]
-  pull_request:
-    branches: ["main", "dev"]
   
-  # Allows you to run this workflow manually from the Actions tab
+  # Allows you to run this workflow manually from the Actions taba
   workflow_dispatch:
 
 jobs:
@@ -46,15 +44,9 @@ jobs:
     if: endsWith(github.ref, '/main')
     
     steps:
-      - name: Transfer files
-        run: scp -r .output ${{ secrets.USERNAME }}@${{ secrets.HOST }}:~/MAAL
-      
       - name: Replace process
         run: |
-          ssh -t ${{ secrets.USERNAME }}@${{ secrets.HOST }} << EOF
           echo "${{ secrets.PASSWORD }}" | sudo -S systemctl stop node-MAAL.service
           rm -rf /var/www/MAAL
-          mv ~/MAAL /var/www/MAAL
+          mv .output /var/www/MAAL
           sudo systemctl start node-MAAL.service
-          logout
-          EOF
