@@ -14,19 +14,26 @@ jobs:
     runs-on: self-hosted
     
     steps:
+      - name: Production
+        if: endsWith(github.ref, '/main')
+        run: echo "ENVIRONMENT=production" >> $GITHUB_ENV
+      - name: Development
+        if: endsWith(github.ref, '/dev')
+        run: echo "ENVIRONMENT=development" >> $GITHUB_ENV
+      
       - name: Clone
         run: |
           cd ..
           rm -rf MAAL
           git clone git@github.com-MAAL:LokenSoftware/MAAL.git
           cd MAAL
-          git checkout origin/main
+          git checkout origin/${GITHUB_REF#refs/heads/}
       
       - name: Install
         run: yarn install --frozen-lockfile
       
       - name: Build
-        run: yarn run build-release
+        run: yarn run build-${{ env.ENVIRONMENT }}
       
       #- name: Test
       #  run: yarn test
@@ -36,8 +43,7 @@ jobs:
     needs:
       - Build
     
-    # Only deploy on main
-    if: github.ref == 'refs/heads/main'
+    if: endsWith(github.ref, '/main')
     
     steps:
       - name: Transfer files
@@ -50,4 +56,5 @@ jobs:
           rm -rf /var/www/MAAL
           mv ~/MAAL /var/www/MAAL
           sudo systemctl start node-MAAL.service
+          logout
           EOF
