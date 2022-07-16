@@ -17,7 +17,7 @@ jobs:
       - name: Clone
         run: |
           rm -rf MAAL
-          git clone git@github.com-MAAL:MathiasFrost/MAAL.git .
+          git clone git@github.com-MAAL:LokenSoftware/MAAL.git .
           git checkout origin/main
       
       - name: Install
