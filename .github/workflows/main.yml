@@ -16,8 +16,10 @@ jobs:
     steps:
       - name: Clone
         run: |
+          cd ..
           rm -rf MAAL
-          git clone git@github.com-MAAL:LokenSoftware/MAAL.git .
+          git clone git@github.com-MAAL:LokenSoftware/MAAL.git
+          cd MAAL
           git checkout origin/main
       
       - name: Install
@@ -39,13 +41,13 @@ jobs:
     
     steps:
       - name: Transfer files
-        run: scp -r output ${{ secrets.USERNAME }}@${{ secrets.HOST }}:~/MAAL.API
+        run: scp -r .output ${{ secrets.USERNAME }}@${{ secrets.HOST }}:~/MAAL
       
       - name: Replace process
         run: |
           ssh -t ${{ secrets.USERNAME }}@${{ secrets.HOST }} << EOF
           echo "${{ secrets.PASSWORD }}" | sudo -S systemctl stop node-MAAL.service
           rm -rf /var/www/MAAL
-          mv ~/MAAL.API /var/www/MAAL
+          mv ~/MAAL /var/www/MAAL
           sudo systemctl start node-MAAL.service
           EOF
