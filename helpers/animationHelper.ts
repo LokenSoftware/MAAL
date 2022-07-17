@@ -12,7 +12,7 @@ deserunt mollit anim id est laborum.`.repeat(10);
 	{
 		
 		const delay = index === 1 ? initialDelay : (
-				this.text.charAt(index) === "." ? 800 : 100 * Math.random());
+			this.text.charAt(index) === "." ? 800 : 100 * Math.random());
 		
 		window.setTimeout(() =>
 		{
@@ -27,7 +27,7 @@ deserunt mollit anim id est laborum.`.repeat(10);
 	public static animateHomePageTitle(update: (text: string[]) => void, initialDelay: number, index: number = 1)
 	{
 		const delay = index === 1 ? initialDelay : (
-				this.title[index] === " " ? 10 : 80);
+			this.title[index] === " " ? 10 : 80);
 		
 		window.setTimeout(() =>
 		{

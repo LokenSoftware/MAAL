@@ -1,4 +1,4 @@
-@keyframes page-in
+@keyframes PageIn
 {
 	from
 	{
@@ -10,18 +10,21 @@
 	}
 }
 
+/* Used implicitly */
 .page-enter-active
 {
 	animation-duration: 300ms;
 	animation-fill-mode: forwards;
-	animation-name: page-in;
+	animation-name: PageIn;
 }
 
+/* Used implicitly */
 .page-enter-active, .page-leave-active
 {
 	transition: opacity 300ms;
 }
 
+/* Used implicitly */
 .page-enter, .page-leave-to
 {
 	opacity: 0;

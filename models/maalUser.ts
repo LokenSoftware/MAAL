@@ -9,4 +9,7 @@ export interface MAALUser
 	
 	/** */
 	email: string;
+	
+	/** */
+	provider: string;
 }

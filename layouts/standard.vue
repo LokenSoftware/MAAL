@@ -1,36 +1,37 @@
 <template>
 	<div>
-		<login ref="login" />
+		<Login ref="login" />
+		<Profile ref="profile" />
 		
 		<!-- Sidebar -->
-		<aside :class="{show: show}" class="sidebar z-50">
-			<div class="sidebar-header">
-				<button class="nav-element square" v-on:click="hideSidebar">
+		<aside :class="{Show: show}" class="Sidebar z-50">
+			<div class="SidebarHeader">
+				<button class="NavElement Square" v-on:click="hideSidebar">
 					<IconsToggle />
 				</button>
 			</div>
-			<a class="sidebar-element title" href="https://github.com/MathiasFrost" target="_blank">GitHub</a>
+			<a class="SidebarElement Title" href="https://github.com/MathiasFrost" target="_blank">GitHub</a>
 		</aside>
 		
 		<!-- Backdrop -->
-		<div v-if="show" class="backdrop z-40" v-on:click="hideSidebar" />
+		<div v-if="show" class="Backdrop z-40" v-on:click="hideSidebar" />
 		
 		<!-- Header -->
 		<header class="fixed w-screen z-30">
-			<nav :class="{scrolled: scrolled}" class="nav">
+			<nav :class="{scrolled: scrolled}" class="Nav">
 				<div class="flex gap-3 mr-auto">
-					<button class="nav-element square" v-on:click="showSidebar">
+					<button class="NavElement Square" v-on:click="showSidebar">
 						<IconsToggle />
 					</button>
-					<RouterLink class="nav-element rectangle title" to="/">
+					<RouterLink class="NavElement Rectangle Title" to="/">
 						Home
 					</RouterLink>
 				</div>
 				<div class="flex gap-3">
-					<button v-if="user" class="nav-element rectangle title" v-on:click="showLogin">
+					<button v-if="user" class="NavElement Rectangle Title" v-on:click="showProfile">
 						{{ user.name }}
 					</button>
-					<button v-else class="nav-element rectangle title" v-on:click="showLogin">
+					<button v-else class="NavElement Rectangle Title" v-on:click="showLogin">
 						Login
 					</button>
 				</div>
@@ -51,12 +52,8 @@ const user = useUserManager();
 </script>
 
 <script lang="ts">
-import Login from "~/components/login.vue";
-
-// noinspection JSUnusedGlobalSymbols
 export default {
 	name: "standard",
-	components: { Login },
 	data()
 	{
 		return {
@@ -89,6 +86,10 @@ export default {
 		showLogin(): void
 		{
 			this.$refs.login.show();
+		},
+		showProfile(): void
+		{
+			this.$refs.profile.show();
 		}
 	}
 };
@@ -99,7 +100,7 @@ export default {
 </style>
 
 <style lang="postcss" scoped>
-.nav
+.Nav
 {
 	@apply flex h-12 pl-3 pr-3 bg-gray-800 bg-opacity-0 transition-colors duration-300;
 	
@@ -109,45 +110,45 @@ export default {
 	}
 }
 
-.nav-element
+.NavElement
 {
 	@apply uppercase rounded mt-auto mb-auto bg-gray-300 bg-opacity-0 hover:bg-opacity-30 transition-colors duration-200;
 	
-	&.square
+	&.Square
 	{
 		@apply p-1;
 	}
 	
-	&.rectangle
+	&.Rectangle
 	{
 		@apply pr-3 pl-3 pt-1 pb-1;
 	}
 }
 
-.sidebar
+.Sidebar
 {
 	transform: translateX(-13rem);
 	transition: transform 300ms;
 	transition-timing-function: cubic-bezier(0.06, 0.8, 0.68, 0.96);
 	@apply h-screen fixed w-52 bg-gray-800 shadow-2xl;
 	
-	&.show
+	&.Show
 	{
 		transform: translateX(0);
 	}
 	
-	.sidebar-element
+	.SidebarElement
 	{
 		@apply block pt-3 pb-3 pl-5 pr-5 w-full hover:bg-gray-700 transition-colors duration-300;
 	}
 	
-	.sidebar-header
+	.SidebarHeader
 	{
 		@apply h-12 pl-3 flex border-b border-b-gray-500;
 	}
 }
 
-.backdrop
+.Backdrop
 {
 	@apply bg-gray-800 opacity-50 fixed h-screen w-screen;
 }

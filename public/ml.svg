@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg width="100%"
-		height="100%"
-		viewBox="0 0 1080 1080"
-		xmlns="http://www.w3.org/2000/svg"
-		xml:space="preserve"
-		style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+	height="100%"
+	viewBox="0 0 1080 1080"
+	xmlns="http://www.w3.org/2000/svg"
+	xml:space="preserve"
+	style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
     <g id="Background" transform="matrix(0.5625,0,0,1,0,0)">
         <rect x="0" y="0" width="1920" height="1080" style="fill:rgb(30,30,30);" />
     </g>
 	<g transform="matrix(2.56235,0,0,3.15875,-394.127,-418.244)">
         <g transform="matrix(288,0,0,288,181.144,407.916)">
             <path d="M0.074,-0L0.174,-0.716L0.317,-0.716C0.317,-0.716 0.413,-0.126 0.42,-0.103C0.429,-0.129 0.552,-0.726 0.552,-0.726L0.679,-0.726L0.759,0L0.673,0L0.608,-0.609L0.484,0L0.348,0L0.241,-0.609L0.166,-0L0.074,-0Z"
-					style="fill:white;fill-rule:nonzero;" />
+				style="fill:white;fill-rule:nonzero;" />
         </g>
 		<g transform="matrix(288,0,0,288,421.05,407.916)">
             <path d="M0.073,-0L-0.005,-0.726L0.09,-0.726L0.168,-0.084L0.366,-0.084L0.366,0L0.073,-0Z"
-					style="fill:white;fill-rule:nonzero;" />
+				style="fill:white;fill-rule:nonzero;" />
         </g>
     </g>
 	<g transform="matrix(1.08835,0.442916,-0.359289,1.34167,255.242,-415.364)">
         <path d="M519.137,318.999L492.559,303.308L463.685,312.84L542.98,778.979L596.035,761.464L519.137,360.822L519.137,318.999Z"
-				style="fill:white;" />
+			style="fill:white;" />
     </g>
 	<g transform="matrix(6.75435e-17,1.30697,-0.689697,5.06534e-17,974.484,-123.658)">
         <rect x="511.353" y="309.551" width="57.465" height="460.898" style="fill:white;" />
