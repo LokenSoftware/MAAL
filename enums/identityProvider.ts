@@ -10,18 +10,18 @@ export enum IdentityProvider
 	/**  Google account  */
 	google,
 	
+	/**  LinkedIn account  */
+	linkedIn,
+	
 	/**  MAAL account  */
 	MAAL,
 	
 	/**  Microsoft account  */
 	microsoft,
 	
-	/**  Twitter account  */
-	twitter,
-	
 	/**  Pinterest account  */
 	pinterest,
 	
-	/**  LinkedIn account  */
-	linkedIn
+	/**  Twitter account  */
+	twitter,
 }
