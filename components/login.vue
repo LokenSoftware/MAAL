@@ -16,7 +16,7 @@
 					<img alt="Logo" class="h-full aspect-square" src="/GitHub.png" />
 					<span class="text-center">Continue with GitHub</span>
 				</button>
-				<button :value="IdentityProvider.microsoft" class="LoginButton" disabled name="provider" type="submit">
+				<button :value="IdentityProvider.microsoft" class="LoginButton" name="provider" type="submit">
 					<img alt="Logo" class="h-full aspect-square" src="/Microsoft.png" />
 					<span class="text-center">Continue with Microsoft</span>
 				</button>
