@@ -18,4 +18,10 @@ export enum IdentityProvider
 	
 	/**  MAAL account  */
 	gitHub,
+	
+	/**  Pinterest account  */
+	pinterest,
+	
+	/**  Facebook account  */
+	facebook
 }

@@ -30,6 +30,14 @@
 					<img alt="Logo" class="h-full aspect-square" src="/LinkedIn.png" />
 					<span class="text-center">Continue with LinkedIn</span>
 				</button>
+				<button :value="IdentityProvider.pinterest" class="LoginButton" disabled name="provider" type="submit">
+					<img alt="Logo" class="h-full aspect-square" src="/Pinterest.png" />
+					<span class="text-center">Continue with LinkedIn</span>
+				</button>
+				<button :value="IdentityProvider.facebook" class="LoginButton" disabled name="provider" type="submit">
+					<img alt="Logo" class="h-full aspect-square" src="/Facebook.png" />
+					<span class="text-center">Continue with LinkedIn</span>
+				</button>
 			</div>
 		</form>
 		
