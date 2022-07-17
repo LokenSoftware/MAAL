@@ -1,14 +1,19 @@
-.input
+.Input
 {
 	@apply bg-gray-800 w-full p-3 rounded outline outline-gray-600 focus-visible:outline-purple-600;
 }
 
-.btn
+.Btn
 {
-	@apply pt-1 pb-1 pr-3 pl-3 rounded disabled:cursor-not-allowed;
+	@apply pt-1 pb-1 pr-3 pl-3 rounded;
 	
-	&.purple
+	&.Purple
 	{
-		@apply bg-purple-700 hover:bg-purple-500 disabled:bg-gray-400;
+		@apply bg-purple-700 hover:bg-purple-500 disabled:bg-purple-400 disabled:text-gray-100;
+	}
+	
+	&.White
+	{
+		@apply bg-gray-100 text-gray-800 hover:bg-gray-200 disabled:bg-gray-400 disabled:text-gray-600;
 	}
 }

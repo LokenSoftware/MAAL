@@ -4,7 +4,7 @@ on:
   push:
     branches: ["main", "dev"]
   
-  # Allows you to run this workflow manually from the Actions taba
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
@@ -13,10 +13,10 @@ jobs:
     
     steps:
       - name: Production
-        if: endsWith(github.ref, '/main')
+        if: github.ref_name == 'main'
         run: echo "ENVIRONMENT=production" >> $GITHUB_ENV
       - name: Development
-        if: endsWith(github.ref, '/dev')
+        if: github.ref_name == 'dev'
         run: echo "ENVIRONMENT=development" >> $GITHUB_ENV
       
       - name: Clone
@@ -41,7 +41,7 @@ jobs:
     needs:
       - Build
     
-    if: endsWith(github.ref, '/main')
+    if: github.ref_name == 'main'
     
     steps:
       - name: Replace process
