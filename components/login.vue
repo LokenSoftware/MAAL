@@ -10,7 +10,9 @@
 					<img alt="Logo" class="h-full aspect-square" src="/MAAL.png" />
 					<span class="text-center">Continue with MAAL</span>
 				</button>
-				<button :value="IdentityProvider.gitHub" class="LoginButton" name="provider" type="submit">
+				<!-- GitHub only supports one redirect url, meaning we can only do this in production -->
+				<button :value="IdentityProvider.gitHub" class="LoginButton" name="provider" type="submit"
+					:disabled="config.ENVIRONMENT !== 'Production'">
 					<img alt="Logo" class="h-full aspect-square" src="/GitHub.png" />
 					<span class="text-center">Continue with GitHub</span>
 				</button>
