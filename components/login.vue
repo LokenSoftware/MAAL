@@ -6,9 +6,9 @@
 		
 		<form :action="`${config.BACKEND_URL}/V1/Login?${returnUrl}`" method="post">
 			<div class="flex flex-col gap-3">
-				<button :value="IdentityProvider.MAAL" class="LoginButton" disabled name="provider" type="submit">
-					<img alt="Logo" class="h-full aspect-square" src="/MAAL.png" />
-					<span class="text-center">Continue with MAAL</span>
+				<button :value="IdentityProvider.facebook" class="LoginButton" name="provider" type="submit">
+					<img alt="Logo" class="h-full aspect-square" src="/Facebook.png" />
+					<span class="text-center">Continue with Facebook</span>
 				</button>
 				<!-- GitHub only supports one redirect url, meaning we can only do this in production -->
 				<button :value="IdentityProvider.gitHub" class="LoginButton" name="provider" type="submit"
@@ -16,29 +16,29 @@
 					<img alt="Logo" class="h-full aspect-square" src="/GitHub.png" />
 					<span class="text-center">Continue with GitHub</span>
 				</button>
-				<button :value="IdentityProvider.microsoft" class="LoginButton" name="provider" type="submit">
-					<img alt="Logo" class="h-full aspect-square" src="/Microsoft.png" />
-					<span class="text-center">Continue with Microsoft</span>
-				</button>
 				<button :value="IdentityProvider.google" class="LoginButton" name="provider" type="submit">
 					<img alt="Logo" class="h-full aspect-square" src="/Google.png" />
 					<span class="text-center">Continue with Google</span>
-				</button>
-				<button :value="IdentityProvider.twitter" class="LoginButton" name="provider" type="submit">
-					<img alt="Logo" class="h-full aspect-square" src="/Twitter.png" />
-					<span class="text-center">Continue with Twitter</span>
 				</button>
 				<button :value="IdentityProvider.linkedIn" class="LoginButton" disabled name="provider" type="submit">
 					<img alt="Logo" class="h-full aspect-square" src="/LinkedIn.png" />
 					<span class="text-center">Continue with LinkedIn</span>
 				</button>
+				<button :value="IdentityProvider.MAAL" class="LoginButton" disabled name="provider" type="submit">
+					<img alt="Logo" class="h-full aspect-square" src="/MAAL.png" />
+					<span class="text-center">Continue with MAAL</span>
+				</button>
+				<button :value="IdentityProvider.microsoft" class="LoginButton" name="provider" type="submit">
+					<img alt="Logo" class="h-full aspect-square" src="/Microsoft.png" />
+					<span class="text-center">Continue with Microsoft</span>
+				</button>
 				<button :value="IdentityProvider.pinterest" class="LoginButton" disabled name="provider" type="submit">
 					<img alt="Logo" class="h-full aspect-square" src="/Pinterest.png" />
-					<span class="text-center">Continue with LinkedIn</span>
+					<span class="text-center">Continue with Pinterest</span>
 				</button>
-				<button :value="IdentityProvider.facebook" class="LoginButton" disabled name="provider" type="submit">
-					<img alt="Logo" class="h-full aspect-square" src="/Facebook.png" />
-					<span class="text-center">Continue with LinkedIn</span>
+				<button :value="IdentityProvider.twitter" class="LoginButton" name="provider" type="submit">
+					<img alt="Logo" class="h-full aspect-square" src="/Twitter.png" />
+					<span class="text-center">Continue with Twitter</span>
 				</button>
 			</div>
 		</form>
