@@ -7,6 +7,10 @@
 		<table class="table-auto">
 			<tbody>
 			<tr>
+				<td class="font-bold text-gray-300">Logged in with</td>
+				<td class="pl-3">{{ user?.provider }}</td>
+			</tr>
+			<tr>
 				<td class="font-bold text-gray-300">Name</td>
 				<td class="pl-3">{{ user?.name }}</td>
 			</tr>

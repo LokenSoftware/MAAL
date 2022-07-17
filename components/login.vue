@@ -18,7 +18,7 @@
 					<img alt="Logo" class="h-full aspect-square" src="/Google.png" />
 					<span class="text-center">Continue with Google</span>
 				</button>
-				<button :value="IdentityProvider.twitter" class="LoginButton" disabled name="provider" type="submit">
+				<button :value="IdentityProvider.twitter" class="LoginButton" name="provider" type="submit">
 					<img alt="Logo" class="h-full aspect-square" src="/Twitter.png" />
 					<span class="text-center">Continue with Twitter</span>
 				</button>
