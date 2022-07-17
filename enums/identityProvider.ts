@@ -1,27 +1,27 @@
 /**  Supported identity providers  */
 export enum IdentityProvider
 {
-	/**  Microsoft account  */
-	microsoft,
-	
-	/**  Google account  */
-	google,
-	
-	/**  Twitter account  */
-	twitter,
-	
-	/**  LinkedIn account  */
-	linkedIn,
-	
-	/**  MAAL account  */
-	MAAL,
+	/**  Facebook account  */
+	facebook,
 	
 	/**  MAAL account  */
 	gitHub,
 	
+	/**  Google account  */
+	google,
+	
+	/**  MAAL account  */
+	MAAL,
+	
+	/**  Microsoft account  */
+	microsoft,
+	
+	/**  Twitter account  */
+	twitter,
+	
 	/**  Pinterest account  */
 	pinterest,
 	
-	/**  Facebook account  */
-	facebook
+	/**  LinkedIn account  */
+	linkedIn
 }
