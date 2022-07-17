@@ -14,5 +14,8 @@ export enum IdentityProvider
 	linkedIn,
 	
 	/**  MAAL account  */
-	MAAL
+	MAAL,
+	
+	/**  MAAL account  */
+	gitHub,
 }

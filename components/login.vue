@@ -10,6 +10,10 @@
 					<img alt="Logo" class="h-full aspect-square" src="/MAAL.png" />
 					<span class="text-center">Continue with MAAL</span>
 				</button>
+				<button :value="IdentityProvider.gitHub" class="LoginButton" name="provider" type="submit">
+					<img alt="Logo" class="h-full aspect-square" src="/GitHub.png" />
+					<span class="text-center">Continue with GitHub</span>
+				</button>
 				<button :value="IdentityProvider.microsoft" class="LoginButton" disabled name="provider" type="submit">
 					<img alt="Logo" class="h-full aspect-square" src="/Microsoft.png" />
 					<span class="text-center">Continue with Microsoft</span>
