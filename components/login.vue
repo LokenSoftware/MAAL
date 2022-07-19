@@ -32,7 +32,7 @@
 					<img alt="Logo" class="h-full aspect-square" src="/Microsoft.png" />
 					<span class="text-center">Continue with Microsoft</span>
 				</button>
-				<button :value="IdentityProvider.pinterest" class="LoginButton" disabled name="provider" type="submit">
+				<button :value="IdentityProvider.pinterest" class="LoginButton" name="provider" type="submit">
 					<img alt="Logo" class="h-full aspect-square" src="/Pinterest.png" />
 					<span class="text-center">Continue with Pinterest</span>
 				</button>
