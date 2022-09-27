@@ -46,8 +46,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useUserManager } from "#imports";
-
 const user = useUserManager();
 </script>
 
@@ -95,11 +93,11 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="pcss">
 
 </style>
 
-<style lang="postcss" scoped>
+<style lang="pcss" scoped>
 .Nav
 {
 	@apply flex h-12 pl-3 pr-3 bg-gray-800 bg-opacity-0 transition-colors duration-300;

@@ -1,6 +1,4 @@
-import { useRuntimeConfig } from "#app";
-import { onMounted, ref } from "#build/imports";
-import type { Ref } from "@vue/reactivity";
+import type { Ref } from "vue";
 import type { MAALUser } from "~/models/maalUser";
 
 export default function(): Ref<MAALUser | null>

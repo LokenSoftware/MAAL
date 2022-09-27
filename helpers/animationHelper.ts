@@ -8,11 +8,9 @@ deserunt mollit anim id est laborum.`.repeat(10);
 	
 	private static title = Array.from("Mathias Amandus Andvik Løken");
 	
-	public static animateHomePageText(update: (text: string) => void, initialDelay: number, index: number = 1)
+	public static animateHomePageText(update: (text: string) => void, initialDelay: number, index = 1)
 	{
-		
-		const delay = index === 1 ? initialDelay : (
-			this.text.charAt(index) === "." ? 800 : 100 * Math.random());
+		const delay = index === 1 ? initialDelay : (this.text.charAt(index) === "." ? 800 : 100 * Math.random());
 		
 		window.setTimeout(() =>
 		{
@@ -24,7 +22,7 @@ deserunt mollit anim id est laborum.`.repeat(10);
 		}, delay);
 	}
 	
-	public static animateHomePageTitle(update: (text: string[]) => void, initialDelay: number, index: number = 1)
+	public static animateHomePageTitle(update: (text: string[]) => void, initialDelay: number, index = 1)
 	{
 		const delay = index === 1 ? initialDelay : (
 			this.title[index] === " " ? 10 : 80);

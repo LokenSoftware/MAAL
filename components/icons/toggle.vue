@@ -22,10 +22,10 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="pcss">
 
 </style>
 
-<style lang="postcss" scoped>
+<style lang="pcss" scoped>
 
 </style>

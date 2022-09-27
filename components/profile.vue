@@ -33,14 +33,10 @@
 </template>
 
 <script lang="ts" setup>
-import { useUserManager } from "#imports";
-
 const user = useUserManager();
 </script>
 
 <script lang="ts">
-import { useRuntimeConfig } from "#app";
-
 export default {
 	name: "profile",
 	data()
@@ -77,10 +73,10 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="pcss">
 
 </style>
 
-<style lang="postcss" scoped>
+<style lang="pcss" scoped>
 
 </style>

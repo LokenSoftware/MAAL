@@ -58,7 +58,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useRuntimeConfig } from "#app";
 import { IdentityProvider } from "~/enums/identityProvider";
 
 const config = useRuntimeConfig().public;
@@ -98,11 +97,11 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="pcss">
 
 </style>
 
-<style lang="postcss" scoped>
+<style lang="pcss" scoped>
 .LoginButton
 {
 	@apply shadow p-3 rounded bg-gray-700 flex disabled:bg-gray-500 disabled:text-gray-300 hover:bg-gray-600;

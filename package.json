@@ -8,7 +8,7 @@
 	"scripts": {
 		"build-development": "env-cmd -e root,development nuxt build",
 		"build-production": "env-cmd -e root,production nuxt build",
-		"dev": "nuxt dev --https",
+		"dev": "nuxt dev",
 		"dev-development": "env-cmd -e root,development yarn run dev",
 		"dev-production": "env-cmd -e root,production yarn run dev",
 		"generate": "nuxt generate",

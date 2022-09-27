@@ -13,8 +13,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead } from "#head";
-
 useHead({
 	titleTemplate: title => `MAAL - ${title}`
 });
@@ -24,7 +22,7 @@ useHead({
 
 </script>
 
-<style lang="postcss">
+<style lang="pcss">
 body
 {
 	@apply bg-gray-800 text-gray-100 mb-5;
@@ -32,6 +30,6 @@ body
 }
 </style>
 
-<style lang="postcss" scoped>
+<style lang="pcss" scoped>
 
 </style>
